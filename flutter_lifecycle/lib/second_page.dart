@@ -12,6 +12,7 @@ class _SecondPageState extends State<SecondPage> {
 
   int _counter = 0;
 
+  // 当Widget第一次插入到Widget树时会被调用。对于每一个State对象，Flutter只会调用一次
   @override
   void initState() {
     // TODO: implement initState
@@ -26,6 +27,10 @@ class _SecondPageState extends State<SecondPage> {
     print("second page setState");
   }
 
+  /*
+  * 初始化时，在initState之后立刻调用
+  * 当State的依赖关系发生变化时，会触发此接口被调用
+  * */
   @override
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
@@ -33,6 +38,7 @@ class _SecondPageState extends State<SecondPage> {
     print("second page didChangeDependencies");
   }
 
+  // 绘制界面
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -52,6 +58,7 @@ class _SecondPageState extends State<SecondPage> {
     );
   }
 
+  // 状态改变时会调用该方法，比如父类调用了setState
   @override
   void didUpdateWidget(covariant SecondPage oldWidget) {
     // TODO: implement didUpdateWidget
@@ -59,6 +66,7 @@ class _SecondPageState extends State<SecondPage> {
     print("second page didUpdateWidget");
   }
 
+  // 当State对象从树中被移除时，会调用此回调
   @override
   void deactivate() {
     // TODO: implement deactivate
@@ -66,6 +74,7 @@ class _SecondPageState extends State<SecondPage> {
     print("second page deactivate");
   }
 
+  // 当State对象从树中被永久移除时调用，通常在此回调中释放资源
   @override
   void dispose() {
     // TODO: implement dispose
@@ -83,6 +92,8 @@ class Child extends StatefulWidget {
 }
 
 class _ChildState extends State<Child> {
+
+  // 绘制界面
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -90,6 +101,7 @@ class _ChildState extends State<Child> {
     return Text("点击按钮 数字变化 count: ${widget.count}");
   }
 
+  // 当Widget第一次插入到Widget树时会被调用。对于每一个State对象，Flutter只会调用一次
   @override
   void initState() {
     // TODO: implement initState
@@ -97,6 +109,8 @@ class _ChildState extends State<Child> {
     print("child initState");
   }
 
+  // 初始化时，在initState之后立刻调用
+  // 当State的依赖关系发生变化时，会触发此接口被调用
   @override
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
@@ -104,6 +118,7 @@ class _ChildState extends State<Child> {
     print("child didChangeDependencies");
   }
 
+  // 状态改变的时候会调用此方法，比如父类调用了setState
   @override
   void didUpdateWidget(covariant Child oldWidget) {
     // TODO: implement didUpdateWidget
@@ -111,6 +126,7 @@ class _ChildState extends State<Child> {
     print("child didUpdateWidget");
   }
 
+  // 当State对象从树中被移除时，会调用此回调
   @override
   void deactivate() {
     // TODO: implement deactivate
@@ -118,6 +134,7 @@ class _ChildState extends State<Child> {
     print("child deactivate");
   }
 
+  // 当State对象从树中被永久移除时调用，通常在此回调中释放资源
   @override
   void dispose() {
     // TODO: implement dispose
